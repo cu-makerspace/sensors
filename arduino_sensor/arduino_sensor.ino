@@ -77,7 +77,7 @@ void loop() {
   if (cap_touch_reading < 0)
     cap_touch_reading = 0;
 
-  if (digitalRead(pin_button) == LOW) {
+  if (digitalRead(pin_button) == HIGH) {
     digitalWrite(pin_led_touch_sense, LOW); // Turn on the correct LED
     digitalWrite(pin_led_photo_senese, LOW);
     digitalWrite(pin_led_potentiometer, HIGH);
@@ -96,7 +96,7 @@ void loop() {
   }
 
   dial_servo_motor.write(servo_angle); // Write angle to motor
-  // If you are powering the motor from the arduino that is doing the readings,
-  // you'll need this delay to prevent the motor's motion from changing readings.
+  // If you are powering the motor only from the arduino, you'll need this 
+  // delay to prevent the motor's motion from changing readings.
   // delay(50);
 } // loop
